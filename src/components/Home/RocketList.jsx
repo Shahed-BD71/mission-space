@@ -13,7 +13,7 @@ export default function RocketList() {
           rocketList.length &&
           rocketList.map((rocket) => {
             return (
-              <div className="col p-3 col-md-3">
+              <div className="col-10 col-sm-6 p-3 col-md-4 col-lg-3">
                 <RocketDetails key={rocket.rocket.index} rocket={rocket} />;
               </div>
             );
