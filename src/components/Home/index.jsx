@@ -1,15 +1,17 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addRockets } from "../../redux/Rockets/RocketSlice";
+import RocketList from "./RocketList";
 
-export default function RocketList() {
-  const [Item, setItem] = useState([]);
+export default function Rocket() {
+  const dispatch = useDispatch();
   useEffect(() => {
     const getRockets = async () => {
       try {
-        const response = await axios.get('/');
-        console.log(response)
+        const response = await axios.get("/");
         const allItems = response.data;
-        console.log(allItems);
+        dispatch(addRockets(allItems));
       } catch (error) {
         console.log(error);
       }
@@ -17,6 +19,9 @@ export default function RocketList() {
     getRockets();
   }, []);
 
-  return <div>
-  </div>;
+  return (
+    <section>
+        <RocketList/>
+    </section>
+  )
 }
