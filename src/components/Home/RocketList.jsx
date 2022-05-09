@@ -1,19 +1,24 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { getAllRockets } from "../../redux/Rockets/RocketSlice";
 import RocketDetails from "./RocketDetails";
-import Search from "./Search";
 
-export default function RocketList() {
-  const rocketData = useSelector(getAllRockets);
-  let term = rocketData.find(o => o.rocket.rocket_name === 'Falcon 1');
-  if (term) {
-    console.log(rocketData)
+export default function RocketList({ term }) {
+  const rocketData = useSelector((state) => {
+    let updateRocket = state.rockets.rockets;
+    if (term) {
+      return updateRocket.filter((o) => o.rocket.rocket_name === term)
+    }
+    else{
+      return updateRocket;
+    }
   }
+    
+  );
+  
+
   return (
     <>
       <div className="container my-5">
-        <Search />
         <div className="row justify-content-center">
           {rocketData && rocketData.length !== 0 ? (
             rocketData.map((rocket) => {
