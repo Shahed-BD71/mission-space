@@ -9,7 +9,8 @@ export default function Rocket() {
   useEffect(() => {
     const getRockets = async () => {
       try {
-        const response = await axios.get('/');
+        const response = await axios.get("/");
+        console.log(response)
         const allItems = response.data;
         dispatch(addRockets(allItems));
       } catch (error) {

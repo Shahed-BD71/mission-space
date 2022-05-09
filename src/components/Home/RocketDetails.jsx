@@ -1,6 +1,10 @@
 import React from "react";
 
 export default function RocketDetails({ rocket }) {
+
+  // let term = rocket.find(o => o.rocket.rocket.rocket_name === 'falcon 1');
+  // console.log(term)
+  
   return (
     <div className="card h-100 align-items-center">
       {/*<img className="card-img-top img-fluid img-thumbnail w-25" src={rocket?.links.mission_patch} alt={rocket.mission_name} /> */}
@@ -15,7 +19,7 @@ export default function RocketDetails({ rocket }) {
           {rocket.launch_success == !false ? (
             <span className="p-2 btn-success rounded">Success</span>
           ) : (
-            <span class="p-2 btn-danger rounded">Failure</span>
+            <span className="p-2 btn-danger rounded">Failure</span>
           )}
         </div>
       </div>
