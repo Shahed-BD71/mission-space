@@ -2,19 +2,27 @@ import React from "react";
 import { useSelector } from "react-redux";
 import RocketDetails from "./RocketDetails";
 
-export default function RocketList({ term }) {
+export default function RocketList({ term, select }) {
   const rocketData = useSelector((state) => {
-    let updateRocket = state.rockets.rockets;
+    let date = new Date();
+    let dd = date.getDate();
+    let mm = date.getMonth() + 1;
+    let yyyy = date.getFullYear();
+    let filterRocket = state.rockets.rockets;
     if (term) {
-      return updateRocket.filter((o) => o.rocket.rocket_name === term)
+      return filterRocket.filter((o) => o.rocket.rocket_name === term);
+    } else if (select === "success") {
+      return filterRocket.filter((o) => o.launch_success);
+    } else if (select === "failure") {
+      return filterRocket.filter((o) => !o.launch_success);
+    } else if (select === "upcoming") {
+      return filterRocket.filter((o) => o.upcoming);
+    } else if (select === "year") {
+      return filterRocket.filter((o) => o.launch_year == yyyy - 2); //using 2, because last year has no value
+    } else {
+      return filterRocket;
     }
-    else{
-      return updateRocket;
-    }
-  }
-    
-  );
-  
+  });
 
   return (
     <>
