@@ -32,9 +32,9 @@ export default function RocketList({ term, select }) {
             rocketData.map((rocket) => {
               return (
                 <div className="col-10 col-sm-6 p-3 col-md-4 col-lg-3">
-                  <RocketDetails key={rocket.index} rocket={rocket} />;
+                  <RocketDetails key={rocket.index} rocket={rocket} />
                 </div>
-              );
+              )
             })
           ) : (
             <div className="spinner-grow mt-5" role="status">
@@ -44,5 +44,5 @@ export default function RocketList({ term, select }) {
         </div>
       </div>
     </>
-  );
+  )
 }
