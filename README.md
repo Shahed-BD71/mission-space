@@ -6,5 +6,5 @@ To run this application locally.
 ```bash
 yarn install
 # then
-yarn start:dev
+yarn run dev
 ```
