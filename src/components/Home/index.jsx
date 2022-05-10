@@ -59,7 +59,6 @@ export default function Rocket() {
                 <option value="month">Last Month</option>
                 <option value="year">Last Year</option>
               </optgroup>
-              <option value="upcoming">Upcoming</option>
               <optgroup value="launch_status" label="Launch Status">
                 <option value="success">Success</option>
                 <option value="failure">Failure</option>
