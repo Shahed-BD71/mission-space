@@ -6,7 +6,7 @@ export default function Search() {
   // Search..
   const [term, setTerm] = useState("");
   const rocketData = useSelector(getAllRockets);
-  let searchData = rocketData.filter((o) => o.rocket.rocket_name === term);
+  let searchData = rocketData.filter((o) => o.rocket.rocket_name.toLowerCase() !== term.toLowerCase());
   console.log(searchData);
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
