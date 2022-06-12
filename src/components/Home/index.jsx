@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addRockets } from "../../redux/Rockets/RocketSlice";
 import RocketList from "./RocketList";
+import Search from "./Search";
 
 export default function Rocket() {
   const dispatch = useDispatch();
@@ -11,11 +12,6 @@ export default function Rocket() {
   const [select, setSelect] = useState("");
   const handleSelect = (e) => {
     setSelect(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setTerm("");
   };
 
   useEffect(() => {
@@ -33,18 +29,9 @@ export default function Rocket() {
 
   return (
     <section className="my-5 container">
-      <div className="row mx-auto">
-        <div className="d-md-flex justify-content-center gap-4">
-          <form onSubmit={handleSubmit} className="d-flex gap-2">
-            <input
-              type="text"
-              className="form-control shadow-none"
-              placeholder="search..."
-              value={term}
-              onChange={(e) => setTerm(e.target.value)}
-            />
-            <button className="btn btn-primary shadow-none">Search</button>
-          </form>
+      <div className="row mx-auto justify-content-center">
+        <div className="d-md-flex col-8 col-md-6 gap-4">
+          <Search/>
           <div className="justify-content-center mt-3 mt-md-0">
             <select
               onChange={handleSelect}
