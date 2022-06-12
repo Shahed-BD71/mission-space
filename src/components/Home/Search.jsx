@@ -6,7 +6,7 @@ export default function Search() {
   // Search..
   const [term, setTerm] = useState("");
   const rocketData = useSelector(getAllRockets);
-  let searchData = rocketData.filter((o) => o.rocket.rocket_name.toLowerCase() !== term.toLowerCase());
+  let searchData = rocketData.filter((o) => o.rocket.rocket_name === term);
   console.log(searchData);
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
@@ -25,7 +25,7 @@ export default function Search() {
           name=""
           onChange={(e) => setTerm(e.target.value)}
         />
-        <button className="btn btn-primary shadow-none">Search</button>
+        <button type="submit" className="btn btn-primary shadow-none">Search</button>
       </form>
     </div>
   );
