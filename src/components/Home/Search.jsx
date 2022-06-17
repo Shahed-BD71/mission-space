@@ -12,11 +12,13 @@ export default function Search() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addRockets(searchData));
-    setTerm("");
+    e.target.reset();
   };
 
   return (
-      <form onSubmit={handleSubmit} className="d-flex gap-2">
+      <form  onSubmit={(e) => {
+        handleSubmit(e);
+      }} className="d-flex gap-2">
         <input
           type="text"
           className="form-control shadow-none"
